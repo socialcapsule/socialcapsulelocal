@@ -17,7 +17,8 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'kqBeRpqbXvxyVCoJla92',
   masterKey: process.env.MASTER_KEY || 'SV5be9QjQJlk8wu6YmBm', //Add your master key here. Keep it secret!
   clientKey:process.env.CLIENT_KEY ||  'lgcYdZxzKEcS91M0OJRo',//Add your client key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+  fileKey:process.env.FILE_KEY || '0anFlEUaxDqYI1jmNIPj',//Add your file key here. Kepp it secret!
+  serverURL: process.env.SERVER_URL || 'https://capsulesocial.herokuapp.com//parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
