@@ -4,6 +4,8 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
+var app = express();
+var SimpleSendGridAdapter = require('parse-server-sendgrid-adapter');
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
@@ -21,7 +23,11 @@ var api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'https://capsulesocial.herokuapp.com//parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
-  }
+  },
+  emailAdapter: SimpleSendGridAdapter({
+    apiKey: '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',
+    fromAddress: 'noreply@socialcapsule.com',
+  })
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
